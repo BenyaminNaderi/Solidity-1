@@ -1,0 +1,23 @@
+pragma solidity 0.8.13;
+
+contract Mydata {
+    struct Benyamin {
+        string name;
+        uint age;
+    }
+    mapping(address => Benyamin) private _dataUser;
+
+    function Complete(string memory _esm , uint _sen) public {
+        _dataUser[msg.sender].name = _esm;
+        _dataUser[msg.sender].age = _sen;
+    }
+
+    function getEsm() public view returns(string memory){
+        return _dataUser[msg.sender].name;
+    }
+    function getSen() public view returns(uint)
+    {
+        return _dataUser[msg.sender].age;
+
+    }
+}
